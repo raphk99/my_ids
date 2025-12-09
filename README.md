@@ -65,6 +65,34 @@ Edit `config.yaml` to customize:
 - Network interface selection
 - Dashboard refresh rate
 
+## Testing the IDS
+
+To test the IDS and trigger detection alerts, use the provided test scripts:
+
+### Quick Test
+
+1. **Start the IDS** in one terminal:
+   ```bash
+   python main.py
+   ```
+
+2. **Run attack simulations** in another terminal:
+   ```bash
+   # Test all attack types
+   python test_attacks.py
+   
+   # Or test individual attack types
+   python test_attacks.py failed_login
+   python test_attacks.py port_scan
+   python test_attacks.py sql
+   python test_attacks.py xss
+   python test_attacks.py ddos
+   ```
+
+3. **Observe alerts** in the IDS dashboard
+
+See [TESTING.md](TESTING.md) for detailed testing instructions and examples.
+
 ## Project Structure
 
 ```
