@@ -1,0 +1,37 @@
+# IDS Configuration File
+
+# Network interface configuration
+network:
+  interface: null  # null = default interface, or specify interface name
+
+# Detection rules configuration
+rules:
+  failed_login:
+    threshold: 20        # Number of failed login attempts to trigger alert
+    time_window: 60      # Time window in seconds
+    severity: HIGH       # LOW, MEDIUM, HIGH, CRITICAL
+  
+  port_scan:
+    threshold: 10        # Number of unique ports to trigger alert
+    time_window: 60      # Time window in seconds
+    severity: MEDIUM
+  
+  payload:
+    threshold: 5         # Number of suspicious payloads to trigger alert
+    time_window: 300    # Time window in seconds (5 minutes)
+    severity: HIGH
+  
+  ddos:
+    threshold: 100       # Number of packets to trigger alert
+    time_window: 10     # Time window in seconds
+    severity: CRITICAL
+
+# Logging configuration
+logging:
+  json_log_path: logs/alerts.json
+  text_log_path: logs/alerts.log
+
+# Dashboard configuration
+dashboard:
+  refresh_rate: 1       # Refresh rate in seconds
+
